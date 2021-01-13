@@ -1,12 +1,12 @@
 'use strict';
 
 class HourlyTotal {
-    constructor(hour, numberOfCookiesPerHour){
+    constructor(hour, numberOfCookiesPerHour) {
         this.hour = hour;
         this.numberOfCookiesPerHour = numberOfCookiesPerHour;
     }
 
-    toString(){
+    toString() {
         return this.hour + ": " + Math.floor(this.numberOfCookiesPerHour) + " cookies";
     }
 }
@@ -29,26 +29,32 @@ class Shop {
         // store data in the array ( hour, result )
         // return the array
         var result = [];
-        for(var i = 0; i < this.numofhours.length; i++){
+        for (var i = 0; i < this.numofhours.length; i++) {
             var randomNumberOfCustomers = Math.floor(Math.random() * (this.maxNumberOfCustomer - this.minNumberOfCustomer + 1) + this.minNumberOfCustomer);
-            var numberOfCookies = randomNumberOfCustomers * this.averageCookiesPerSale;
+            var numberOfCookies = Math.ceil(randomNumberOfCustomers * this.averageCookiesPerSale);
             result[i] = new HourlyTotal(this.numofhours[i], numberOfCookies);
         }
         return result;
     }
 
-    asHTML(){
+    asHTML() {
         var div = document.createElement('div');
         var shopTitleParagraph = document.createElement('p');
         shopTitleParagraph.textContent = this.location;
         div.appendChild(shopTitleParagraph);
         var unorderedList = document.createElement('ul');
         var result = this.calculateNumberOfHourlyTotals();
-        for(var i = 0; i<result.length; i++){
+        var total = 0;
+        for (var i = 0; i < result.length; i++) {
             var li = document.createElement('li');
             li.textContent = result[i].toString();
             unorderedList.appendChild(li);
+
+            total += result[i].numberOfCookiesPerHour;
         }
+        var li = document.createElement('li');
+        li.textContent = ' Total' + total
+        unorderedList.appendChild(li);
         div.appendChild(unorderedList);
         return div;
     }
@@ -78,7 +84,7 @@ document.body.appendChild(lima.asHTML());
 //         for (var i = 0; i < Numofhours.length; i++) {
 //             this.custmerperhour[i] = Math.floor(Math.random() * (this.maxcusperhour - this.mincusperhour + 1) + this.mincusperhour);
 //             console.log(this.custmerperhour[i]);
-            
+
 //         }
 
 //     },
