@@ -79,30 +79,54 @@ var tokyo = new Shop("Tokyo", 3, 24, 1.2);
 var paris = new Shop("Paris", 20, 38, 2.3);
 var lima = new Shop("Lima", 2, 16, 4.6);
 
-
-
-var tabel = document.createElement("table");
-var headerRow = document.createElement("tr");
-var headerOne = document.createElement("th");
-headerOne.textContent = "";
-headerRow.appendChild(headerOne);
-
-for (var i = 0; i < numofhours.length; i++) {
-    var header = document.createElement("th");
-    header.textContent = numofhours[i];
-    headerRow.appendChild(header);
-}
-
-var totalHeader = document.createElement("th");
-headerRow.appendChild(totalHeader);
-totalHeader.textContent = 'Daily Location Total';
-
-tabel.appendChild(headerRow);
-
 var shops = [seattle, dubai, tokyo, paris, lima];
-for (var j = 0; j < shops.length; j++) {
-    var shop = shops[j];
-    tabel.appendChild(shop.asHTML());
+
+var form = document.getElementById("store-date");
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    var location = document.getElementById("branch-name").value;
+    var mincustomerPerHour = parseInt(event.target.mincustomerPerHour.value, 10);
+    var maxcustomerPerHour = parseInt(event.target.maxcustomerPerHour.value, 10);
+    var averageCookiesPerSale = parseInt(event.target.avragecookiepercustomer.value, 10);
+
+    var shop = new Shop(
+        location,
+        mincustomerPerHour,
+        maxcustomerPerHour,
+        averageCookiesPerSale
+    );
+    shops.push(shop);
+    tableContainer.innerHTML = "";
+    renderTable();
+});
+
+var tableContainer = document.createElement("div");
+document.body.appendChild(tableContainer);
+
+
+function renderTable() {
+    var tabel = document.createElement("table");
+    var headerRow = document.createElement("tr");
+    var headerOne = document.createElement("th");
+    headerOne.textContent = "";
+    headerRow.appendChild(headerOne);
+
+    for (var i = 0; i < numofhours.length; i++) {
+        var header = document.createElement("th");
+        header.textContent = numofhours[i];
+        headerRow.appendChild(header);
+    }
+
+    var totalHeader = document.createElement("th");
+    headerRow.appendChild(totalHeader);
+    totalHeader.textContent = "Daily Location Total";
+
+    tabel.appendChild(headerRow);
+    for (var j = 0; j < shops.length; j++) {
+        var shop = shops[j];
+        tabel.appendChild(shop.asHTML());
+    }
+    tableContainer.appendChild(tabel);
 }
 
-document.body.appendChild(tabel);
+renderTable(shops);
