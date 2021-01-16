@@ -1,19 +1,93 @@
+header {
+    background-color: rgb(200, 200, 255);
+    height: 120px;
+}
+
+.title {
+    text-align: center;
+    font-size: 35px;
+}
+
+header nav div {
+    position: absolute;
+    right: 150px;
+    font-size: 30px;
+}
+
 body {
     background-color: #8a92e0;
+    margin: 0 auto;
+    font-family: cursive;
+    color: #000764;
+}
+
+.home-main {
+    margin: 30px 350px;
+}
+
+.main-article {
+    display: inline-block;
+    font-weight: bold;
+    padding-top: 20px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.home-img {
+    width: 600px;
+    height: 200px;
+}
+
+.content {
+    margin: 0px 180px 30px 180px;
+}
+
+.contant-img {
+    padding: 13px;
 }
 
 table {
     border-collapse: collapse;
     font-size: larger;
+    margin-left: 20px;
+    margin-top: 50px;
 }
 
 table td {
-    border: 3px solid #aa7c18;
-    padding: 10px;
+    border: 3px solid #000764;
+    padding: 8px;
 }
 
 th {
     font-weight: bold;
-    padding-bottom: 10px;
-    padding-right: 10px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+}
+
+#table {
+    text-align: center;
+    padding-top: 30px;
+    padding-left: 5px;
+}
+
+footer {
+    background-color: rgb(200, 200, 255);
+    color: #000764;
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    margin-top: 100px;
+}
+
+figure {
+    display: inline-block;
+}
+
+.paragraph1,
+.location-header {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 20px;
 }
