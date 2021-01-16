@@ -1,26 +1,3 @@
-header {
-    background-color: rgb(93, 179, 206);
-}
-
-.header-div {
-    height: 100px;
-}
-
-#title {
-    position: absolute;
-    left: 100px;
-    top: 150px;
-    font-size: 50px;
-}
-
-.list-item {
-    display: inline;
-    position: absolute;
-    right: 30px;
-    top: 30px;
-}
-
 body {
-    background-color: rgb(225, 65, 65);
-    background-image: url("img/family.jpg");
+    background-color: #5f69be;
 }
