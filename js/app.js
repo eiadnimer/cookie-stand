@@ -11,14 +11,12 @@ function Location(locationName, minCust, maxCust, avgCookie) {
     this.totalCookies = 0;
 }
 
-Location.prototype.getCalculate = function(minCust, maxCust, avgCookie) {
-    console.log(this.locationName);
-    this.numCustPerHour = calculate(maxCust, minCust, avgCookie)[0];
-    this.cookiesPerHour = calculate(maxCust, minCust, avgCookie)[1];
-    this.totalCookies = calculate(maxCust, minCust, avgCookie)[2];
-    console.log(this.numCustPerHour);
-    console.log(this.cookiesPerHour);
-    console.log(this.totalCookies);
+Location.prototype.getCalculate = function(minCust, maxCust) {
+    this.numCustPerHour = calculatePerHour(minCust, maxCust);
+};
+Location.prototype.getCalculateCookies = function(custPerHour, avgCookie) {
+    this.cookiesPerHour = calculateCookie(custPerHour, avgCookie)[0];
+    this.totalCookies = calculateCookie(custPerHour, avgCookie)[1];
 };
 Location.prototype.render = function() {
     var salesRow = document.createElement('tr');
@@ -33,64 +31,82 @@ Location.prototype.render = function() {
     cell = document.createElement('td');
     cell.textContent = this.totalCookies;
     salesRow.appendChild(cell);
-    return salesRow;
+    salesTable.appendChild(salesRow);
 
 };
 
-function calculate(minCust, maxCust, avgCookie) {
+function calculatePerHour(minCust, maxCust) {
     var num = Math.floor(Math.random() * (maxCust - minCust + 1) + minCust);
     var numCus = [num];
-    var cookiesPerHour = [Math.floor(num * avgCookie)];
-    var totalCookies = Number(cookiesPerHour[0]);
     for (var i = 1; i < arrHour.length; i++) {
         num = Math.floor(Math.random() * (maxCust - minCust + 1) + minCust);
         numCus[i] = num;
-        cookiesPerHour[i] = Math.floor(num * avgCookie);
+    }
+    return numCus;
+}
+
+function calculateCookie(custPerHour, avgCookie) {
+    var cookiesPerHour = [Math.floor(custPerHour[0] * avgCookie)];
+    var totalCookies = Number(cookiesPerHour[0]);
+    for (var i = 1; i < arrHour.length; i++) {
+        cookiesPerHour[i] = Math.floor(custPerHour[i] * avgCookie);
         totalCookies = (totalCookies + Number(cookiesPerHour[i]));
     }
-    return [numCus, cookiesPerHour, totalCookies];
+    return [cookiesPerHour, totalCookies];
 }
 
 var Seattle = new Location('Seattle', 23, 65, 6.3);
-Seattle.getCalculate(23, 65, 6.3);
+Seattle.getCalculate(23, 65);
+Seattle.getCalculateCookies(Seattle.numCustPerHour, 6.3);
 var Tokyo = new Location('Tokyo', 3, 24, 1.2);
-Tokyo.getCalculate(3, 24, 1.2);
+Tokyo.getCalculate(3, 24);
+Tokyo.getCalculateCookies(Tokyo.numCustPerHour, 1.2);
 var Dubai = new Location('Dubai', 11, 38, 3.7);
-Dubai.getCalculate(11, 38, 3.7);
+Dubai.getCalculate(11, 38);
+Dubai.getCalculateCookies(Dubai.numCustPerHour, 3.7);
 var Paris = new Location('Paris', 20, 38, 2.3);
-Paris.getCalculate(20, 38, 2.3);
+Paris.getCalculate(20, 38);
+Paris.getCalculateCookies(Paris.numCustPerHour, 2.3)
 var Lima = new Location('Lima', 2, 16, 4.6);
-Lima.getCalculate(2, 16, 4.6);
+Lima.getCalculate(2, 16);
+Lima.getCalculateCookies(Lima.numCustPerHour, 4.6);
+
+
 var arrLocation = [Seattle, Tokyo, Dubai, Paris, Lima];
 
-var parent = document.getElementById("table");
-var salesTable = document.createElement('table');
-parent.appendChild(salesTable);
-var salesHead = tableHead(arrHour, 'th');
-salesTable.appendChild(salesHead);
-salesTable.appendChild(Seattle.render());
-salesTable.appendChild(Tokyo.render());
-salesTable.appendChild(Dubai.render());
-salesTable.appendChild(Paris.render());
-salesTable.appendChild(Lima.render());
-var salesFooter = tableFoot();
-salesTable.appendChild(salesFooter);
 
-function tableHead(array, element) {
+var salesTable = document.createElement('table');
+var parent = document.getElementById("table");
+parent.appendChild(salesTable);
+
+console.log(salesTable);
+tableHead();
+doTable();
+
+function doTable() {
+    for (var i = 0; i < arrLocation.length; i++) {
+        console.log("aaa");
+        arrLocation[i].render();
+    }
+}
+
+tableFoot();
+
+
+function tableHead() {
     var salesRow = document.createElement('tr');
-    var cell = document.createElement(element);
+    var cell = document.createElement('th');
     cell.textContent = '';
     salesRow.appendChild(cell);
-    for (var i = 0; i < array.length; i++) {
-        var cell = document.createElement(element);
-        cell.textContent = array[i];
+    for (var i = 0; i < arrHour.length; i++) {
+        cell = document.createElement('th');
+        cell.textContent = arrHour[i];
         salesRow.appendChild(cell);
     }
-    var cell = document.createElement(element);
-    cell.textContent = 'Daily Location Total';
+    var cell = document.createElement('th');
+    cell.textContent = 'Daily';
     salesRow.appendChild(cell);
-
-    return salesRow;
+    salesTable.appendChild(salesRow);
 }
 
 function tableFoot() {
@@ -112,5 +128,5 @@ function tableFoot() {
         cell.textContent = sum;
         salesRow.appendChild(cell);
     }
-    return salesRow;
+    salesTable.appendChild(salesRow);
 }
