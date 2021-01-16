@@ -2,30 +2,105 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cookie stand</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header>
-        <p id="title">Salmon Cookies</p>
-        <div class="header-div">
-            <nav>
-                <img width="200px" src="https://codefellows.github.io/code-201-guide/curriculum/class-06/lab/assets/salmon.png" alt="" />
-                <ul class="list-item">
-                    <li><a href="index.html"> Home</a></li>
-                    <li><a href="sales.html">Sales</a></li>
-                    <li>Delivery</li>
+        <nav>
+            <img src="img/salmon.png" alt="" width="200px">
+            <div>
+                <ul>
+                    <a href="index.html">Home</a>
+                    <a href="sales.html">Sales</a>
                 </ul>
-            </nav>
-        </div>
+            </div>
+            <p class="title">Pat's Salmon Cookies</p>
+        </nav>
     </header>
     <main>
+        <div class="home-main">
+            <img src="img/chinook-edit.png" alt="logo/salmon pic" class="home-img">
+            <form action="" id="addLocation">
+                <fieldset>
+                    <legend> Create New Location </legend>
+                    <label for="">Branch Name</label>
+                    <input type="text" name="lname" id="lname">
+                    <br> <br>
+                    <label for="minCus">minimum custmore</label>
+                    <input type="number" name="minCust" id="minCust">
+                    <br> <br>
+                    <label for="maxCus">maximum custmore</label>
+                    <input type="number" name="maxCust" id="maxCust">
+                    <br> <br>
+                    <label for="avgCookieSale">average cookies sale</label>
+                    <input type="number" name="avgCookieSale" id="avgCookieSale">
+                    <br>
+                    <input type="submit" id="submit">
+                </fieldset>
+            </form>
+            <article class="main-article">
+                Welcome to Pat's Shop for Salmon Cookies :D
+                <br> Salmon cookies are the best, we are everywhere!
+                <br> This is your home, ENJOY
+            </article>
+        </div>
+        <div class="content">
+            <p class="paragraph1">
+                Salmon Cookie! Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus fugiat veritatis, assumenda cupiditate id cumque excepturi repellat autem beatae itaque rem officiis tempora doloremque totam impedit fuga esse quas aliquam!
+            </p>
+
+            <img class="contant-img" src="img/cutter.jpeg" alt="" height="250px" width="300px">
+            <img class="contant-img" src="img/family.jpg" alt="" height="250px" width="300px">
+            <img class="contant-img" src="img/fish.jpg" alt="" height="250px" width="300px">
+            <img class="contant-img" src="img/frosted-cookie.jpg" alt="" height="250px" width="300px">
+            <img class="contant-img" src="img/shirt.jpg" alt="" height="250px" width="300px">
+
+
+
+            <h1 class="location-header">You can find us here</h1>
+            <figure>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172139.41616961334!2d-122.4821483640639!3d47.612943182210856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490102c93e83355%3A0x102565466944d59a!2sSeattle%2C%20WA%2C%20USA!5e0!3m2!1sen!2sjo!4v1610460691350!5m2!1sen!2sjo"></iframe>
+                <figcaption><img src="img/mail.png" alt="">Seattle@shop.com</figcaption>
+                <figcaption><img src="img/phone.png" alt="">+9999999999</figcaption>
+                <figcaption><img src="img/clock.png" alt="">6:00am - 8:00pm</figcaption>
+            </figure>
+            <figure>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207446.9730505266!2d139.60078205350348!3d35.6681625268519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b857628235d%3A0xcdd8aef709a2b520!2sTokyo%2C%20Japan!5e0!3m2!1sen!2sjo!4v1610460984055!5m2!1sen!2sjo"></iframe>
+                <figcaption><img src="img/mail.png" alt="">Tokyo@shop.com</figcaption>
+                <figcaption><img src="img/phone.png" alt="">+8888888888</figcaption>
+                <figcaption><img src="img/clock.png" alt="">6:00am - 8:00pm</figcaption>
+            </figure>
+            <figure>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462565.19761349517!2d54.94755046687462!3d25.075085302137236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e5084295162!2sDubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sjo!4v1610461044486!5m2!1sen!2sjo"></iframe>
+                <figcaption><img src="img/mail.png" alt="">Dubi@shop.com</figcaption>
+                <figcaption><img src="img/phone.png" alt="">+7777777777</figcaption>
+                <figcaption><img src="img/clock.png" alt="">6:00am - 8:00pm</figcaption>
+
+            </figure>
+            <figure>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83998.94722666142!2d2.2770200529676967!3d48.858837739251385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C%20France!5e0!3m2!1sen!2sjo!4v1610461071097!5m2!1sen!2sjo"></iframe>
+                <figcaption><img src="img/mail.png" alt="">Paris@shop.com</figcaption>
+                <figcaption><img src="img/phone.png" alt="">+6666666666</figcaption>
+                <figcaption><img src="img/clock.png" alt="">6:00am - 8:00pm</figcaption>
+
+            </figure>
+            <figure>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d499487.63539749006!2d-77.2679794889483!3d-12.026498671770355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c5f619ee3ec7%3A0x14206cb9cc452e4a!2sLima%2C%20Peru!5e0!3m2!1sen!2sjo!4v1610461119232!5m2!1sen!2sjo"></iframe>
+                <figcaption><img src="img/mail.png" alt="">Lima@shop.com</figcaption>
+                <figcaption><img src="img/phone.png" alt="">+55555555555</figcaption>
+                <figcaption><img src="img/clock.png" alt="">6:00am - 8:00pm</figcaption>
+            </figure>
 
     </main>
+    <footer>
+        &copy;Eiad Nimer
+    </footer>
+
 </body>
 
 </html>
