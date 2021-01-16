@@ -4,33 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cookie stand</title>
+    <title>cookie-stand</title>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header>
-        <div class="header-div">
-            <nav>
-                <img width="200px" src="https://codefellows.github.io/code-201-guide/curriculum/class-06/lab/assets/salmon.png" alt="" />
-                <ul class="list-item">
-                    <li> <a href="index.html"> Home</a></li>
-                    <li> <a href="sales.html">Sales</a> </li>
-                    <li>Delivery</li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <img src="img/salmon.png" alt="" class="logo" width="200px">
+
+            <ul>
+                <li class="item-list"><a href="index.html">Home</a></li>
+                <li class="item-list"><a href="sales.html">Sales</a></li>
+
+            </ul>
+        </nav>
     </header>
     <main>
-        <form id="store-date">
-            Branch name <input type="text" id="branch-name"> <br> Minimum customer per hour<input type="number" id="mincustomerPerHour"> <br> Maximum customer per hour<input type="number" id="maxcustomerPerHour"> <br> average cookies per customer
-            <input type="number" id="avragecookiepercustomer"> <br>
-            <input type="submit" value="submit">
-
-
-        </form>
+        <div id="table"></div>
     </main>
+    <footer>
+
+    </footer>
     <script src="js/app.js"></script>
 </body>
 
