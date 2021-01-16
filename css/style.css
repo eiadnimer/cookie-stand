@@ -1,3 +1,19 @@
 body {
-    background-color: #5f69be;
+    background-color: #8a92e0;
+}
+
+table {
+    border-collapse: collapse;
+    font-size: larger;
+}
+
+table td {
+    border: 3px solid #aa7c18;
+    padding: 10px;
+}
+
+th {
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-right: 10px;
 }
